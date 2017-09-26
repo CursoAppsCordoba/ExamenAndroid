@@ -3,7 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.usuario.contactos.AltaContacto">
+    android:background="@color/fondo"
+    tools:context="com.example.usuario.examenandroid.BajaContacto">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="Introduce todos tus datos"
+        android:textAllCaps="true"
+        android:textColor="@color/list"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView"
@@ -15,6 +29,8 @@
         android:gravity="center"
         android:text="Nombre:"
         android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold|italic" />
 
     <EditText
@@ -28,7 +44,11 @@
         android:layout_toRightOf="@+id/textView"
         android:ems="10"
         android:hint="nombre"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/TextView2"
@@ -40,6 +60,8 @@
         android:gravity="center"
         android:text="EMAIL:"
         android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold|italic" />
 
     <EditText
@@ -53,7 +75,11 @@
         android:layout_toRightOf="@+id/textView"
         android:ems="10"
         android:hint="email"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView3"
@@ -65,42 +91,53 @@
         android:gravity="center"
         android:text="Edad:"
         android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/edadBaja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_above="@+id/btnAlta"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/TextView2"
+        android:layout_toEndOf="@+id/TextView2"
         android:layout_toRightOf="@+id/TextView2"
         android:ems="10"
-        android:hint="edad"
-        android:inputType="textPersonName" />
+        android:hint="0"
+        android:inputType="number"
+        android:textAllCaps="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/btnBaja"
+        android:id="@+id/btnAlta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_marginEnd="57dp"
         android:layout_marginRight="57dp"
         android:layout_marginTop="93dp"
-        android:layout_toLeftOf="@+id/btnCancelarBaja"
-        android:layout_toStartOf="@+id/btnCancelarBaja"
-        android:text="Baja" />
+        android:layout_toLeftOf="@+id/btnCancelar"
+        android:layout_toStartOf="@+id/btnCancelar"
+        android:background="#cf4545"
+        android:text="Baja"
+        android:textColor="@android:color/background_light" />
 
     <Button
-        android:id="@+id/btnCancelarBaja"
+        android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnBaja"
-        android:layout_alignBottom="@+id/btnBaja"
+        android:layout_alignBaseline="@+id/btnAlta"
+        android:layout_alignBottom="@+id/btnAlta"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
-        android:text="cancelar" />
+        android:background="#cf4545"
+        android:text="cancelar"
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>
