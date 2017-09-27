@@ -123,9 +123,10 @@
         android:layout_marginTop="93dp"
         android:layout_toLeftOf="@+id/btnCancelar"
         android:layout_toStartOf="@+id/btnCancelar"
-        android:background="#cf4545"
+        android:background="@android:color/holo_red_light"
         android:text="Baja"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/btnCancelar"
@@ -137,7 +138,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
-        android:background="#cf4545"
+        android:background="@android:color/holo_red_light"
         android:text="cancelar"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
 </RelativeLayout>

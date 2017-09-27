@@ -53,7 +53,6 @@ public class ListarContacto extends AppCompatActivity implements View.OnClickLis
             ventana = showDialog();
         }
         ventana.show();
-
     }
 
     private void mostrarDialogo() {

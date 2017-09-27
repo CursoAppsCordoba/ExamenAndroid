@@ -1,48 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.usuario.contactos2109.MainActivity">
-
+    android:background="@color/fondo"
+    tools:context="com.example.usuario.examenandroid.MainActivity">
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/alta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:background="@color/list"
+        android:text="alta"
+        android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/Show"
+        android:id="@+id/baja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mostrar"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/save"
-        android:layout_alignLeft="@+id/save"
-        android:layout_alignStart="@+id/save" />
+        android:layout_alignLeft="@+id/alta"
+        android:layout_alignStart="@+id/alta"
+        android:layout_below="@+id/alta"
+        android:layout_marginTop="64dp"
+        android:background="@color/list"
+        android:text="baja"
+        android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/close"
+        android:id="@+id/lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/Show"
-        android:layout_alignEnd="@+id/Show"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Borrar"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/Show"
-        android:layout_alignEnd="@+id/Show" />
-
+        android:layout_alignLeft="@+id/baja"
+        android:layout_alignStart="@+id/baja"
+        android:layout_below="@+id/baja"
+        android:layout_marginTop="69dp"
+        android:background="@color/list"
+        android:text="listado"
+        android:textStyle="bold|italic" />
 </RelativeLayout>

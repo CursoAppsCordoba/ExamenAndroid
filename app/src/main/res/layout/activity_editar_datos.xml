@@ -104,6 +104,7 @@
         android:layout_toLeftOf="@+id/btnCancelar"
         android:layout_toStartOf="@+id/btnCancelar"
         android:background="#afe07f"
+        android:onClick="onClick."
         android:text="modificar" />
 
     <Button
@@ -117,6 +118,7 @@
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
         android:background="#afe07f"
+        android:onClick="onClick"
         android:text="cancelar" />
 
 </RelativeLayout>

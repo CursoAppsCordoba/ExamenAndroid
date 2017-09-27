@@ -103,8 +103,9 @@
         android:layout_marginTop="93dp"
         android:layout_toLeftOf="@+id/btnCancelar"
         android:layout_toStartOf="@+id/btnCancelar"
-        android:background="#afe07f"
-        android:text="alta" />
+        android:background="@color/list"
+        android:text="alta"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/btnCancelar"
@@ -116,8 +117,9 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
-        android:background="#afe07f"
-        android:text="cancelar" />
+        android:background="@color/list"
+        android:text="cancelar"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView4"
@@ -128,7 +130,7 @@
         android:layout_marginTop="29dp"
         android:text="Introduce todos tus datos"
         android:textAllCaps="true"
-        android:textColor="@color/list"
+        android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 </RelativeLayout>

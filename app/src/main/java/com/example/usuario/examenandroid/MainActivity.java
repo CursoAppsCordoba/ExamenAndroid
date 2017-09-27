@@ -1,101 +1,92 @@
 package com.example.usuario.examenandroid;
 
+/**
+ * Created by Jonatan on 21/09/2017.
+ */
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-
-    private Button guardar;
-    private Button mostrar;
-    private Button cerrar;
-    private Button borrar;
-
-
-    public static final int Alta=100;
-    public static final int Baja=200;
-    public static final int Listar=300;
-
-
-    ArrayList<Contacto> contactos=new ArrayList<>();
-
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Set<Contacto> lista;
+    ArrayAdapter adaptador;
+    public static final int ALTA = 100;
+    public static final int BAJA = 200;
+    public static final int LISTAR = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        guardar=(Button)findViewById(R.id.save);
-        guardar.setOnClickListener(this);
-        mostrar=(Button)findViewById(R.id.Show);
-        mostrar.setOnClickListener(this);
-        cerrar=(Button)findViewById(R.id.close);
-        cerrar.setOnClickListener(this);
-        borrar=(Button)findViewById(R.id.delete);
-        borrar.setOnClickListener(this);
+        Button btnAlta = (Button) findViewById(R.id.alta);
+        btnAlta.setOnClickListener(this);
+        Button btnBaja = (Button) findViewById(R.id.baja);
+        btnBaja.setOnClickListener(this);
+        Button btnLista = (Button) findViewById(R.id.lista);
+        btnLista.setOnClickListener(this);
+        lista = new HashSet<>();
+    }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.alta:
+                Intent intent = new Intent(this, AltaContacto.class);
+                startActivityForResult(intent, ALTA);
+                break;
 
+            case R.id.baja:
+                Intent intent2 = new Intent(this, BajaContacto.class);
+                startActivityForResult(intent2, BAJA);
+                break;
+
+            case R.id.lista:
+                Intent intent3 = new Intent(this, ListarContacto.class);
+                intent3.putExtra("lista",new ArrayList<>(lista));
+                startActivityForResult(intent3, LISTAR);
+                break;
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(Alta==requestCode){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.hasExtra("contacto")){
-                    Contacto contacto=data.getParcelableExtra("contacto");
-                    contactos.add((Contacto)data.getParcelableExtra("contacto"));
-                    Toast.makeText(this, "El contacto " + contacto.getNombre() + " se ha guardado", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-        }else if(Baja==requestCode){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.hasExtra("contacto")){
-                    Contacto contacto=data.getParcelableExtra("contacto");
-                    if(  contactos.remove(data.getParcelableExtra("contacto")))
-                    {
-                        Toast.makeText(this, "El contacto " + contacto.getNombre() + " se ha borrado", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(this, "El contacto " + contacto.getNombre() + " no existe y no puede eliminarse", Toast.LENGTH_SHORT).show();
+        switch (requestCode) {
+            case ALTA:
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.hasExtra("contacto")) {
+                        lista.add((Contacto) data.getParcelableExtra("contacto"));
                     }
                 }
-            }
-        }
-    }
+                break;
 
+            case BAJA:
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.hasExtra("contacto")) {
+                        if (lista.remove((Contacto) data.getParcelableExtra("contacto"))) {
+                            Toast.makeText(this.getApplicationContext(), "Se ha borrado", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(this.getApplicationContext(), "NO se ha borrado", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                break;
 
-    @Override
-    public void onClick(View view) {
-
-        if(view.getId()==R.id.save){
-
-            Intent intent=new Intent(this, Alta.class);
-            startActivityForResult(intent, Alta);
-
-        }else if(view.getId()==R.id.Show) {
-
-            Intent intent = new Intent(this, showContact.class);
-            intent.putExtra("lista", contactos);
-            startActivityForResult(intent, Listar);
-
-        }else if(view.getId()==R.id.delete){
-            Intent intent=new Intent(this, Borrar.class);
-            startActivityForResult(intent, Baja);
-
-
-        }else if(view.getId()==R.id.close){
-
-            finish();
+            case LISTAR:
+                break;
         }
 
     }

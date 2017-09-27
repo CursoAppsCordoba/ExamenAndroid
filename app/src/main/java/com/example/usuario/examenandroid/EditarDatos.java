@@ -3,6 +3,9 @@ package com.example.usuario.examenandroid;
 /**
  * Created by Jonatan on 26/09/2017.
  */
+/**
+ * Updated on 27/09/2017
+ */
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -11,9 +14,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +32,14 @@ public class EditarDatos extends AppCompatActivity implements View.OnClickListen
         EditText edtEmail = (EditText) findViewById(R.id.email);
         EditText edtEdad = (EditText) findViewById(R.id.edad);
         ArrayList<Contacto> lista = (ArrayList<Contacto>) getIntent().getSerializableExtra("lista");
+        Intent intent = getIntent();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnModificar:
-                modificarContacto(view);
+                modificarContacto();
                 if (contacto != null) {
                     Intent intent = new Intent();
                     intent.putExtra("contacto", contacto);
@@ -54,7 +56,7 @@ public class EditarDatos extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    public void modificarContacto(View view) {
+    public void modificarContacto() {
 
     }
 

@@ -7,7 +7,6 @@ import android.os.Parcelable;
 public class Contacto implements Parcelable {
 
 
-
     private String nombre;
     private String email;
     private Integer edad;
@@ -16,7 +15,7 @@ public class Contacto implements Parcelable {
     protected Contacto(Parcel in) {
         nombre = in.readString();
         email = in.readString();
-        edad=in.readInt();
+        edad = in.readInt();
     }
 
     @Override
@@ -96,8 +95,9 @@ public class Contacto implements Parcelable {
         parcel.writeString(email);
         parcel.writeInt(edad);
     }
+
     @Override
     public String toString() {
-        return "Nombre: " + nombre + ", Email: " + email + ", Edad: " + edad;
+        return "-Nombre: " + nombre + "\n" + "-Email: " + email + "\n" + "-Edad: " + edad;
     }
 }
