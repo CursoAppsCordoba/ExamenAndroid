@@ -22,7 +22,7 @@ public class BajaContacto extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baja_contacto);
-        Button btnBaja = (Button) findViewById(R.id.btnAlta);
+        Button btnBaja = (Button) findViewById(R.id.btnModificar);
         btnBaja.setOnClickListener(this);
         Button btnCancelar = (Button) findViewById(R.id.btnCancelar);
         btnCancelar.setOnClickListener(this);
@@ -31,7 +31,7 @@ public class BajaContacto extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnAlta:
+            case R.id.btnModificar:
                 bajaContacto(view);
                 if (contacto != null) {
                     Intent intent = new Intent();

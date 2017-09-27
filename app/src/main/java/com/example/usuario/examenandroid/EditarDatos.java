@@ -11,28 +11,33 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
-public class AltaContacto extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class EditarDatos extends AppCompatActivity implements View.OnClickListener {
     private Contacto contacto;
     private AlertDialog ventana;
+    private List<Contacto> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alta_contacto);
-        Button btnAceptar = (Button) findViewById(R.id.btnModificar);
-        btnAceptar.setOnClickListener(this);
-        Button btnCancelar = (Button) findViewById(R.id.btnCancelar);
-        btnCancelar.setOnClickListener((View.OnClickListener) this);
+        setContentView(R.layout.activity_editar_datos);
+        EditText edtNombre = (EditText) findViewById(R.id.nombre);
+        EditText edtEmail = (EditText) findViewById(R.id.email);
+        EditText edtEdad = (EditText) findViewById(R.id.edad);
+        ArrayList<Contacto> lista = (ArrayList<Contacto>) getIntent().getSerializableExtra("lista");
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnModificar:
-                crearContacto(view);
+                modificarContacto(view);
                 if (contacto != null) {
                     Intent intent = new Intent();
                     intent.putExtra("contacto", contacto);
@@ -49,15 +54,8 @@ public class AltaContacto extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void crearContacto(View view) {
+    public void modificarContacto(View view) {
 
-        EditText edtNombre = (EditText) findViewById(R.id.nombre);
-        EditText edtEmail = (EditText) findViewById(R.id.email);
-        EditText edtEdad = (EditText) findViewById(R.id.edad);
-        String nombre = edtNombre.getText().toString();
-        String email = edtEmail.getText().toString();
-        Integer edad = Integer.parseInt(edtEdad.getText().toString());
-        contacto = new Contacto(nombre, email, edad);
     }
 
     public AlertDialog mostrarDialogo() {
@@ -67,7 +65,7 @@ public class AltaContacto extends AppCompatActivity implements View.OnClickListe
         alerta.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int id) {
-                AltaContacto.this.finish();
+                EditarDatos.this.finish();
             }
         });
         alerta.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

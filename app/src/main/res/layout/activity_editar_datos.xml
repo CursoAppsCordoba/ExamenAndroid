@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context="com.example.usuario.examenandroid.AltaContacto">
+    tools:context="com.example.usuario.examenandroid.EditarDatos">
 
     <TextView
         android:id="@+id/textView"
@@ -104,7 +104,7 @@
         android:layout_toLeftOf="@+id/btnCancelar"
         android:layout_toStartOf="@+id/btnCancelar"
         android:background="#afe07f"
-        android:text="alta" />
+        android:text="modificar" />
 
     <Button
         android:id="@+id/btnCancelar"
@@ -119,16 +119,4 @@
         android:background="#afe07f"
         android:text="cancelar" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="Introduce todos tus datos"
-        android:textAllCaps="true"
-        android:textColor="@color/list"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
 </RelativeLayout>

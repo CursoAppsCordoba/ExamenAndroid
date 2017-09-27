@@ -16,9 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Alta" />
-        <activity android:name=".Borrar" />
-        <activity android:name=".showContact" />
+        <activity android:name=".ListaContactos" />
+        <activity android:name=".ListarContacto" />
+        <activity android:name=".BajaContacto" />
+        <activity android:name=".AltaContacto" />
+        <activity android:name=".EditarDatos"></activity>
     </application>
 
 </manifest>
