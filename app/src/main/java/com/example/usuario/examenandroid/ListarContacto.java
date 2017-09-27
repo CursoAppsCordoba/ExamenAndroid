@@ -8,13 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
+
 
 public class ListarContacto extends AppCompatActivity implements View.OnClickListener {
     private ListView listView;
@@ -29,9 +27,6 @@ public class ListarContacto extends AppCompatActivity implements View.OnClickLis
         ArrayList<String> lista = (ArrayList<String>) getIntent().getSerializableExtra("lista");
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lista);
         listView.setAdapter(arrayAdapter);
-        Set<String> conjunto = new LinkedHashSet<String>(lista);
-        lista.clear();
-        lista.addAll(conjunto);
     }
 
     @Override
